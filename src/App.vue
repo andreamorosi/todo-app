@@ -1,11 +1,12 @@
 <template>
   <div id="app">    
     <todo-list v-bind:todos="todos"></todo-list>
-    <create-todo v-on:add-todo="addTodo"></create-todo>
+    <create-todo v-on:create-todo="createTodo"></create-todo>
   </div>
 </template>
 
 <script>
+import sweetalert from "sweetalert";
 import TodoList from "./components/TodoList";
 import CreateTodo from "./components/CreateTodo";
 
@@ -16,7 +17,7 @@ export default {
     CreateTodo,
   },
   methods: {
-    addTodo(title) {
+    createTodo(title) {
       this.todos.push({
         title,
         done: false
